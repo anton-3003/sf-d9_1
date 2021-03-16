@@ -10,7 +10,7 @@ class AuthorSerializer(serializers.ModelSerializer):
 
 
 class PostSerializer(serializers.ModelSerializer):
-    author = AuthorSerializer(required=False)
+    author = AuthorSerializer(required=False, read_only=True)
 
     class Meta:
         model = Post

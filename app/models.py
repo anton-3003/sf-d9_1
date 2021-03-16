@@ -23,7 +23,7 @@ class Post(models.Model):
     updated = models.DateTimeField(default=timezone.now)
     publication_date = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE, null=True, default=None)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Категори статьи', blank=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Категория статьи', blank=True, null=True)
 
     def __str__(self):
         return self.title
