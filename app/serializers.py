@@ -16,12 +16,14 @@ class PostSerializer(serializers.ModelSerializer):
         model = Post
         fields = '__all__'
 
+    # def create(self, validated_data):
+    #     as_data = validated_data.pop('author')
+    #     post = Post.objects.create(**validated_data)
+    #     for a_data in as_data:
+    #         User.objects.create(post=post, **a_data)
+    #     return post
     def create(self, validated_data):
-        as_data = validated_data.pop('author')
-        post = Post.objects.create(**validated_data)
-        for a_data in as_data:
-            User.objects.create(post=post, **a_data)
-        return post
+        return Post.objects.create(**validated_data)
 
 
 class CategorySerializer(serializers.ModelSerializer):
